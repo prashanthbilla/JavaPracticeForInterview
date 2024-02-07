@@ -2,6 +2,7 @@ package com.user;
 
 import ch.qos.logback.classic.net.SyslogAppender;
 
+import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,7 @@ public class Java8FeaturesPractice {
         //evenAndOddUsingStreams1(list);
         evenAndOddUsingStreams2(list);
         //employeeOperations(employeeList);
+        //Insedo
     }
 
     public static void simpleListPrintingInCollections(List<Integer> list) {
@@ -44,6 +46,8 @@ public class Java8FeaturesPractice {
 
     public static void evenAndOddUsingStreams2(List<Integer> list) {
 
+        list.stream().map(e -> e * 10).forEach(System.out::println);
+
         List<Integer> odd = list.stream().filter(n -> n % 2 != 0).toList();
         List<Integer> even = list.stream().filter(n -> n % 2 == 0).toList();
         list.forEach((n) -> {
@@ -61,8 +65,13 @@ public class Java8FeaturesPractice {
         System.out.println(results);
         List<Boolean> results1 = employeeList.stream().map(e -> (e.getName().toLowerCase().startsWith("pra"))).collect(Collectors.toList());
         System.out.println(results1);
-        Boolean bool = employeeList.stream().anyMatch(e -> Objects.equals(e.getName(), "Prashanth134"));
+        Boolean bool = employeeList.stream().anyMatch(e -> Objects.equals(e.getName(), "Prashanth1"));
         System.out.println(bool);
+        Boolean t = employeeList.stream().anyMatch(e -> e.getName().equals("Prashanth2"));
+        System.out.println(t);
+        String name = UUID.randomUUID().toString();
+        System.out.println(name);
+        List<Integer> emp = employeeList.stream().map(e -> (e.getId() * 2)).toList();
+        System.out.println(emp);
     }
-
 }
